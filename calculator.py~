@@ -1,6 +1,5 @@
 #! /usr/bin/env python3
 import sys
-#!!!
 try:
 	salary=int(sys.argv[1])
 	taxable_income=salary-5000
