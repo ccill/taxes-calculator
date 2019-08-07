@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import csv   
+import csv,time   
 import sys
 from collections import namedtuple
 
@@ -155,5 +155,8 @@ class IncomeTaxCalculator:
             writer.writerows(result)
 
 if __name__=='__main__':
+    start=time.time()
     calc=IncomeTaxCalculator(UserData())
     calc.export()
+    end=time.time()
+    print('how long:{:.2f}s'.format(end-start))
