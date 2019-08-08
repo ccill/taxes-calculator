@@ -153,12 +153,15 @@ class IncomeTaxCalculator(Process):
     def tax_part_and_remain(cls,income):
         social_insurance_money=cls.SheBao(income)
         taxable_part=income-social_insurance_money-tax_start_point
+        #print(social_insurance_money,taxable_part)
 
         for item in income_tax_table:
             if taxable_part>item.start_point:
+                #print(taxable_part,item.start_point)
                 tax=taxable_part*item.rate-item.quick
+                #print(tax)
                 return '{:.2f}'.format(tax) , '{:.2f}'.format(income-social_insurance_money-tax)
-            return '0.00','{:.2f}'.format(income-social_insurance_money)
+        return '0.00','{:.2f}'.format(income-social_insurance_money)
 
     #?????????????
     #?????????????????????
